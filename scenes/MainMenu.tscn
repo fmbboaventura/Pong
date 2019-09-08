@@ -25,7 +25,7 @@ func _on_QuitButton_pressed():
 
 
 func _on_StartButton_pressed():
-	var error = get_tree().change_scene(\"res://scenes/GUI.tscn\")
+	var error = get_tree().change_scene(\"res://scenes/Stage.tscn\")
 	if (error):
 		print (\"erro\")
 	pass # Replace with function body.
