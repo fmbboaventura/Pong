@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Stage/Stage.gd" type="Script" id=1]
 [ext_resource path="res://textures/court.png" type="Texture" id=2]
-[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://textures/left_pallete.png" type="Texture" id=3]
+[ext_resource path="res://textures/right_pallete.png" type="Texture" id=4]
+[ext_resource path="res://textures/ball.png" type="Texture" id=5]
+[ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=6]
 
 [node name="Stage" type="Node2D"]
 script = ExtResource( 1 )
@@ -10,9 +13,23 @@ script = ExtResource( 1 )
 [node name="Court" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
+[node name="LeftPaddle" type="Sprite" parent="Court"]
+position = Vector2( -637, 0 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 3 )
+
+[node name="RightPaddle" type="Sprite" parent="Court"]
+position = Vector2( 637, 0 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+
+[node name="Ball" type="Sprite" parent="Court"]
+scale = Vector2( 4, 4 )
+texture = ExtResource( 5 )
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="GUI" parent="CanvasLayer" instance=ExtResource( 6 )]
