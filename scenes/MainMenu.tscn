@@ -3,11 +3,11 @@
 [ext_resource path="res://scripts/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/alpha-beta-brk.regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 90
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 36
 font_data = ExtResource( 2 )
 
@@ -29,7 +29,7 @@ margin_bottom = 370.0
 [node name="Title" type="Label" parent="VBoxContainer"]
 margin_right = 560.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Pong"
 align = 1
 valign = 1
@@ -55,7 +55,7 @@ margin_right = 97.0
 margin_bottom = 100.0
 focus_neighbour_top = NodePath("../QuitButton")
 focus_previous = NodePath("../QuitButton")
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Start"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer/HBoxContainer/MenuOptions"]
@@ -64,7 +64,7 @@ margin_right = 97.0
 margin_bottom = 143.0
 focus_neighbour_bottom = NodePath("../StartButton")
 focus_next = NodePath("../StartButton")
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Quit"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/QuitButton" to="." method="_on_QuitButton_pressed"]
