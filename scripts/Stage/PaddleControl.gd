@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+#warning-ignore:unused_class_variable
 enum PlayerSlot {PLAYER_1, PLAYER_2}
 export(PlayerSlot) var playerSlot
 var actionPrefix
@@ -25,5 +26,7 @@ func _input(event):
 		
 	velocity = velocity.normalized()*speed
 
+#warning-ignore:unused_argument
 func _physics_process(delta):
-    velocity = move_and_slide(velocity)
+	velocity.x = 0
+	velocity = move_and_slide(velocity)
