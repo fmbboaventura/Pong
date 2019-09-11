@@ -16,11 +16,6 @@ func _physics_process(delta):
 	
 	if collision:
         velocity = velocity.bounce(collision.normal)
-		
-	elif not get_node("VisibilityNotifier2D").is_on_screen():
-		if position.x < 0: emit_signal("exit_screen_left")
-		else: emit_signal("exit_screen_right")
-		reset_ball()
 
 func reset_ball():
 	position.x = 0
@@ -29,3 +24,9 @@ func reset_ball():
 	velocity = Vector2()
 	velocity.x -= 1 if (randi() % 2) else -1
 	velocity.y -= 1 if (randi() % 2) else -1
+
+#warning-ignore:unused_argument
+func _on_viewport_exited(viewport):
+	if position.x < 0: emit_signal("exit_screen_left")
+	else: emit_signal("exit_screen_right")
+	reset_ball()

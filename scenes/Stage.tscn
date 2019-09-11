@@ -1,13 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/Stage/Stage.gd" type="Script" id=1]
 [ext_resource path="res://textures/court.png" type="Texture" id=2]
-[ext_resource path="res://scripts/Stage/PaddleControl.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Stage/PlayerController.gd" type="Script" id=3]
 [ext_resource path="res://textures/left_pallete.png" type="Texture" id=4]
 [ext_resource path="res://textures/right_pallete.png" type="Texture" id=5]
 [ext_resource path="res://scripts/Stage/BallControl.gd" type="Script" id=6]
 [ext_resource path="res://textures/ball.png" type="Texture" id=7]
 [ext_resource path="res://scenes/GUI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/Stage/GUI.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 16.716
@@ -85,3 +86,7 @@ current = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource( 8 )]
+script = ExtResource( 9 )
+[connection signal="score_changed" from="Court/LeftPaddle" to="CanvasLayer/GUI" method="_on_player1_score_changed"]
+[connection signal="score_changed" from="Court/RightPaddle" to="CanvasLayer/GUI" method="_on_player2_score_changed"]
+[connection signal="viewport_exited" from="Court/Ball/VisibilityNotifier2D" to="Court/Ball" method="_on_viewport_exited"]
