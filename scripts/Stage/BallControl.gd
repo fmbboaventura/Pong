@@ -15,7 +15,8 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity.normalized() * speed * delta)
 	
 	if collision:
-        velocity = velocity.bounce(collision.normal)
+		get_node("CollisionSound").play()
+		velocity = velocity.bounce(collision.normal)
 
 func reset_ball():
 	position.x = 0
@@ -27,6 +28,7 @@ func reset_ball():
 
 #warning-ignore:unused_argument
 func _on_viewport_exited(viewport):
+	get_node("FoulSound").play()
 	if position.x < 0: emit_signal("exit_screen_left")
 	else: emit_signal("exit_screen_right")
 	reset_ball()
