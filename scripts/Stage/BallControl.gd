@@ -7,8 +7,11 @@ export (int) var speed = 200
 signal exit_screen_left
 signal exit_screen_right
 
+var hitSpark
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	hitSpark = load("res://scenes/HitSpark.tscn")
 	reset_ball()
 
 func _physics_process(delta):
@@ -16,6 +19,11 @@ func _physics_process(delta):
 	
 	if collision:
 		get_node("CollisionSound").play()
+		var hsNode = hitSpark.instance()
+		hsNode.position = collision.position
+		hsNode.rotation = (-1*velocity).angle()
+		hsNode.emitting = true
+		get_parent().add_child(hsNode)
 		velocity = velocity.bounce(collision.normal)
 
 func reset_ball():

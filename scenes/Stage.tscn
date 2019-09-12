@@ -60,6 +60,7 @@ texture = ExtResource( 5 )
 shape = SubResource( 2 )
 
 [node name="Ball" type="KinematicBody2D" parent="Court"]
+editor/display_folded = true
 script = ExtResource( 6 )
 speed = 500
 
@@ -79,6 +80,7 @@ stream = ExtResource( 8 )
 stream = ExtResource( 9 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Court"]
+editor/display_folded = true
 
 [node name="Top" type="CollisionShape2D" parent="Court/StaticBody2D"]
 position = Vector2( 0, -384 )
