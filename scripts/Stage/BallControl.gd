@@ -21,7 +21,7 @@ func _physics_process(delta):
 		get_node("CollisionSound").play()
 		var hsNode = hitSpark.instance()
 		hsNode.position = collision.position
-		hsNode.rotation = (-1*velocity).angle()
+		hsNode.rotation = PI + velocity.angle()
 		hsNode.emitting = true
 		get_parent().add_child(hsNode)
 		velocity = velocity.bounce(collision.normal)
