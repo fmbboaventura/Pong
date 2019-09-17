@@ -35,7 +35,6 @@ size = 28
 font_data = ExtResource( 1 )
 
 [node name="OptionsMenuItem" type="HBoxContainer"]
-editor/display_folded = true
 margin_right = 512.0
 margin_bottom = 26.0
 focus_mode = 2

@@ -1,4 +1,4 @@
-extends PopupPanel
+extends PopupDialog
 
 export (Color) var unfocused_color
 export (Color) var focused_color

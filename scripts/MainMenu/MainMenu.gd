@@ -14,3 +14,8 @@ func _on_StartButton_pressed():
 
 func _on_OptionsButton_pressed():
 	get_node("OptionsPanel").popup()
+
+
+func _on_BackButton_pressed():
+	get_node("OptionsPanel").hide()
+	get_node("VBoxContainer/HBoxContainer/MenuOptions/OptionsButton").grab_focus()
