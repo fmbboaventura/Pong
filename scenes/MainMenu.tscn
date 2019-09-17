@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://fonts/alpha-beta-brk.regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scripts/MainMenu/OptionsPanel.gd" type="Script" id=3]
+[ext_resource path="res://scenes/OptionsMenuItem.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 90
@@ -18,10 +19,6 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 34
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 28
 font_data = ExtResource( 2 )
 
 [node name="MainMenu" type="MarginContainer"]
@@ -49,6 +46,7 @@ valign = 1
 autowrap = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+editor/display_folded = true
 margin_top = 86.0
 margin_right = 560.0
 margin_bottom = 290.0
@@ -98,11 +96,13 @@ unfocused_color = Color( 1, 1, 1, 1 )
 focused_color = Color( 0.0980392, 0.772549, 0.72549, 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel"]
-margin_right = 560.0
-margin_bottom = 290.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 556.0
+margin_bottom = 286.0
 
 [node name="OptionsLabel" type="Label" parent="OptionsPanel/VBoxContainer"]
-margin_right = 560.0
+margin_right = 552.0
 margin_bottom = 32.0
 custom_fonts/font = SubResource( 4 )
 text = "Options"
@@ -111,122 +111,42 @@ valign = 1
 
 [node name="HSeparator" type="HSeparator" parent="OptionsPanel/VBoxContainer"]
 margin_top = 36.0
-margin_right = 560.0
+margin_right = 552.0
 margin_bottom = 40.0
 
 [node name="MarginContainer" type="MarginContainer" parent="OptionsPanel/VBoxContainer"]
 margin_top = 44.0
-margin_right = 560.0
+margin_right = 552.0
 margin_bottom = 160.0
 custom_constants/margin_right = 20
 custom_constants/margin_left = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsPanel/VBoxContainer/MarginContainer"]
 margin_left = 20.0
-margin_right = 540.0
+margin_right = 532.0
 margin_bottom = 116.0
 
-[node name="Resolution" type="HBoxContainer" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_right = 520.0
-margin_bottom = 26.0
-focus_mode = 2
-alignment = 1
+[node name="Resolution" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
+optionName = "Resolution"
+valueLabels = [ "800x450", "1280x720", "1366x768" ]
 
-[node name="Label" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/Resolution"]
-margin_right = 258.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "Resolution"
-valign = 1
-
-[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/Resolution"]
-margin_left = 262.0
-margin_right = 520.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "< 1366x768 >"
-align = 2
-valign = 1
-
-[node name="DisplayMode" type="HBoxContainer" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer"]
-editor/display_folded = true
+[node name="DisplayMode" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 30.0
-margin_right = 520.0
 margin_bottom = 56.0
-focus_mode = 2
-alignment = 1
+optionName = "Display Mode"
+valueLabels = [ "Windowed", "Fullscreen" ]
 
-[node name="Label" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/DisplayMode"]
-margin_right = 258.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "Display Mode"
-valign = 1
-
-[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/DisplayMode"]
-margin_left = 262.0
-margin_right = 520.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "< Windowed >"
-align = 2
-valign = 1
-
-[node name="VSYNC" type="HBoxContainer" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer"]
-editor/display_folded = true
+[node name="VSYNC" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 60.0
-margin_right = 520.0
 margin_bottom = 86.0
-focus_mode = 2
-alignment = 1
+optionName = "VSYNC"
+valueLabels = [ "On", "Off" ]
 
-[node name="Label" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/VSYNC"]
-margin_right = 258.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "VSYNC"
-valign = 1
-
-[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/VSYNC"]
-margin_left = 262.0
-margin_right = 520.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "< On >"
-align = 2
-valign = 1
-
-[node name="AspectRatio" type="HBoxContainer" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer"]
-editor/display_folded = true
+[node name="OptionsMenuItem" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 90.0
-margin_right = 520.0
 margin_bottom = 116.0
-focus_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/AspectRatio"]
-margin_right = 258.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "Aspect Ratio"
-valign = 1
-
-[node name="Value" type="Label" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer/AspectRatio"]
-margin_left = 262.0
-margin_right = 520.0
-margin_bottom = 26.0
-size_flags_horizontal = 3
-custom_fonts/font = SubResource( 5 )
-text = "< Stretch >"
-align = 2
-valign = 1
+optionName = "Aspect Ratio"
+valueLabels = [ "Stretch", "Keep" ]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/QuitButton" to="." method="_on_QuitButton_pressed"]
