@@ -9,6 +9,8 @@ export (String) var optionName = \"Label\"
 export (Array, String) var valueLabels
 var currentValueIndex
 
+signal value_changed(value_index)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentValueIndex = 0
@@ -17,6 +19,8 @@ func _ready():
 
 func setValue(valueIndex):
 	get_node(\"Value\").text = \"< \" + valueLabels[valueIndex] + \" >\"
+	currentValueIndex = valueIndex
+	emit_signal(\"value_changed\", currentValueIndex)
 	
 func nextValue():
 	currentValueIndex += 1

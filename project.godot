@@ -19,6 +19,10 @@ config/name="Pong"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://Tennisball.png"
 
+[autoload]
+
+GameSettings="*res://scripts/Global/GameSettings.gd"
+
 [display]
 
 window/size/width=800

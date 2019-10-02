@@ -15,6 +15,16 @@ func _ready():
 		
 	get_node("VBoxContainer/MarginContainer/VBoxContainer").get_child(0).grab_focus()
 	
+	menuOptionsContainer.get_node("AspectRatio").setValue(GameSettings._aspectRatio)
+	menuOptionsContainer.get_node("DisplayMode").setValue(GameSettings._displayMode)
+	menuOptionsContainer.get_node("Resolution").setValue(GameSettings._resolution)
+	menuOptionsContainer.get_node("VSYNC").setValue(GameSettings._vsync)
+	
+	menuOptionsContainer.get_node("AspectRatio").connect("value_changed", GameSettings, "setAspectRatio")
+	menuOptionsContainer.get_node("DisplayMode").connect("value_changed", GameSettings, "setDisplayMode")
+	menuOptionsContainer.get_node("Resolution").connect("value_changed", GameSettings, "setResolution")
+	menuOptionsContainer.get_node("VSYNC").connect("value_changed", GameSettings, "setVSYNC")
+	
 func on_option_focused(index):
 	var menuOption = menuOptionsContainer.get_child(index)
 	menuOption.get_node("Label").set("custom_colors/font_color", focused_color)

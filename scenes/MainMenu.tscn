@@ -139,7 +139,7 @@ valueLabels = [ "800x450", "1280x720", "1366x768" ]
 margin_top = 30.0
 margin_bottom = 56.0
 optionName = "Display Mode"
-valueLabels = [ "Windowed", "Fullscreen" ]
+valueLabels = [ "Windowed", "Fullscreen", "Borderless" ]
 
 [node name="VSYNC" parent="OptionsPanel/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource( 4 )]
 margin_top = 60.0
