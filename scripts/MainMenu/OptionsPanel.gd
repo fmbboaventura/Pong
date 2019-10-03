@@ -41,3 +41,7 @@ func on_child_gui_input(event):
 		currentOption.previousValue()
 	elif (event.is_action_pressed("ui_right")):
 		currentOption.nextValue()
+
+
+func _on_ApplyButton_pressed():
+	GameSettings.apply()

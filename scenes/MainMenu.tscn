@@ -186,4 +186,5 @@ text = "Back"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/MenuOptions/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="OptionsPanel/VBoxContainer/MarginContainer2/HBoxContainer/ApplyButton" to="OptionsPanel" method="_on_ApplyButton_pressed"]
 [connection signal="pressed" from="OptionsPanel/VBoxContainer/MarginContainer2/HBoxContainer/BackButton" to="." method="_on_BackButton_pressed"]

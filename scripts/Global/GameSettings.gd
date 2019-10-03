@@ -32,7 +32,10 @@ var _displayMode
 var _aspectRatio
 var _vsync
 
+var config
+
 func _ready():
+	config = ConfigFile.new()
 	_resolution = Resolution.RES_800x450
 	_displayMode = DisplayMode.WINDOWED
 	_aspectRatio = AspectRatio.STRETCH
@@ -49,3 +52,8 @@ func setResolution(index):
 
 func setVSYNC(index):
 	print(index)
+	
+func apply():
+	config.set_value("config", "displayMode", _displayMode)
+	config.set_value("config", "aspectRatio", _aspectRatio)
+	config.set_value("config", "vsync", _vsync)
