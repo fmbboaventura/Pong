@@ -44,4 +44,4 @@ func on_child_gui_input(event):
 
 
 func _on_ApplyButton_pressed():
-	GameSettings.apply()
+	GameSettings.applyAndSave()

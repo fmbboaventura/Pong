@@ -35,25 +35,35 @@ var _vsync
 var config
 
 func _ready():
-	config = ConfigFile.new()
+	loadConfig()
 	_resolution = Resolution.RES_800x450
-	_displayMode = DisplayMode.WINDOWED
-	_aspectRatio = AspectRatio.STRETCH
-	_vsync = Vsync.ON
 	
 func setAspectRatio(index):
 	print(index)
+	_aspectRatio = index
 	
 func setDisplayMode(index):
 	print(index)
+	_displayMode = index
 	
 func setResolution(index):
 	print(index)
+	_resolution = index
 
 func setVSYNC(index):
 	print(index)
+	_vsync = index
 	
-func apply():
+func loadConfig():
+	config = ConfigFile.new()
+	var err = config.load("config/config.cfg")
+	if err == OK:
+		_displayMode = config.get_value("config", "displayMode", DisplayMode.WINDOWED)
+		_aspectRatio = config.get_value("config", "aspectRatio", AspectRatio.STRETCH)
+		_vsync = config.get_value("config", "vsync", Vsync.ON)
+	
+func applyAndSave():
 	config.set_value("config", "displayMode", _displayMode)
 	config.set_value("config", "aspectRatio", _aspectRatio)
 	config.set_value("config", "vsync", _vsync)
+	print(config.save("config/config.cfg"))
