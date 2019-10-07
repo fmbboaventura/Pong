@@ -27,7 +27,8 @@ GameSettings="*res://scripts/Global/GameSettings.gd"
 
 window/size/width=800
 window/size/height=450
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [input]
 
